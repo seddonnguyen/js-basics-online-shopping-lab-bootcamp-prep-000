@@ -20,8 +20,13 @@ function viewCart() {
   // write your code here
   var temp = "";
   for(var i = 0; i < cart.length; i++) {
-
+    if(i === 0) {
+      temp = `In your cart, you have ${cart[i].itemName} at ${cart[i].itemPrice}`;
+    } else {
+      temp = temp + `, ${cart[i].itemName} at ${cart[i].itemPrice}`
+    }
   }
+  return temp + ".";
 }
 
 function total() {
