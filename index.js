@@ -26,11 +26,11 @@ function viewCart() {
 
   for(var i = 0; i < cart.length; i++) {
     if(i === 0) {
-      temp = `In your cart, you have ${cart[i].itemName} at ${cart[i].itemPrice}`;
+      temp = `In your cart, you have ${cart[i].itemName} at $${cart[i].itemPrice}`;
     } else if (i === cart.length - 1) {
-      temp = temp + `, and ${cart[i].itemName} at ${cart[i].itemPrice}`
+      temp = temp + `, and ${cart[i].itemName} at $${cart[i].itemPrice}`
     } else {
-      temp = temp + `, ${cart[i].itemName} at ${cart[i].itemPrice}`
+      temp = temp + `, ${cart[i].itemName} at $${cart[i].itemPrice}`
     }
   }
   return temp + "."
@@ -53,5 +53,9 @@ function placeOrder(cardNumber) {
   // write your code here
   if(cardNumber === undefined) {
     console.log("Sorry, we don't have a credit card on file for you.")
+  } else {
+    var total = total();
+    cart = [];
+    return `Your total cost is $${total}, which will be charged to the card ${cardNumber}.`
   }
 }
